@@ -25,7 +25,7 @@
 .botui-message {
   margin: 10px 0;
   min-height: 20px;
-  
+
   &:after {
     display: block;
     content: "";
@@ -49,9 +49,9 @@
 
 .botui-message-content-image {
   margin: 5px 0;
-  display: block;
-  max-width: 200px;
-  max-height: 200px;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 500px;
 }
 
 .botui-message-content-link {

@@ -4,20 +4,30 @@
   <meta charset="UTF-8">
   <title>test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="src/styles/index.css">
   <link rel="stylesheet" href="build/botui.min.css">
   <link rel="stylesheet" href="build/botui-theme-default.css">
 </head>
 <body>
-  <div class="botui-app-container" id="welcome">
+  <div class="botui-container" id="welcome">
     <bot-ui></bot-ui>
   </div>
+
+  <div class="content" aria-hidden="true">
+    dsjaklfjaksdjflad
+    <article id="p1">
+      <h3>Project 1</h3>
+      <p>Project 1 info goes here...</p>
+    </article>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="build/botui.js"></script>
   <script>
     var botui = new BotUI('welcome');
 
     botui.message.add({
-      content: '你好，我叫王子龙，秉持对数字货币长期价值的看好，我想投资数字货币。'
+      content: '你好，我叫[王子龙](#)，秉持对数字货币长期价值的看好，我想投资数字货币。'
     }).then(function() {
       return botui.message.add({
         loading:true,
@@ -137,17 +147,17 @@
           content:'那让我们继续买币的流程。'
         })
     }).then(function (){
-        return botui.message.add({
+       return botui.message.add({
           loading:true,
           delay:1500,
-          content:'![overall](src/img/1.png)'
+          content:'![](src/img/1.jpg)'
         })
-    }).then(function (){
-        return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'我将一步步带你走过这些环节，让你安心完成购买数字货币！'
-        })
+    }).then(function(){
+      botui.message.add({
+            loading:true,
+            delay:1500,
+            content:'我将一步步带你走过这些环节，让你安心完成购买数字货币！'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -261,6 +271,17 @@
       })
     });
   </script>
-
+  <script>
+  const content = document.querySelector('.content');
+  const article = document.querySelector('#p1');
+    document.addEventListener('mouseup', e => {
+      if (window.getSelection().toString().trim() == '王子龙') {
+        //article.classList.add('show');
+        content.setAttribute('aria-hidden', 'false');
+        //content.classList.add('show');
+        //content.focus();
+      }
+    })
+  </script>
 </body>
 </html>
