@@ -8,11 +8,31 @@
 
 $font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 $primary-color: #1894FC;
+$content-background:#919292;
+
+.botui-app-container {
+  width: 100%; // mobile-first
+  height: 100%;
+  line-height: 1;
+
+  @media (min-width: 400px) {
+    width: 400px;
+    height: 500px;
+    margin: 0 auto;
+  }
+}
 
 .botui-container {
   font-size: 14px;
   background-color: #fff;
   font-family: $font-family;
+
+  width: auto;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 10px 50px;
 }
 
 .botui-messages-container {
@@ -25,17 +45,32 @@ $primary-color: #1894FC;
 
 .botui-message {
   min-height: 30px;
+
+  margin: 10px 0;
+  min-height: 20px;
+
+  &:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
 }
 
 .botui-message-content {
   padding: 7px 13px;
   border-radius: 15px;
-  color: darken($primary-color, 22%);
-  background-color: lighten($primary-color, 35%);
+  color: darken($content-background, 22%);
+  background-color: lighten($content-background, 35%);
+
+  width: auto;
+  max-width: 60%;
+  display: inline-block;
 
   &.human { // if human = true
-    color: lighten($primary-color, 40%);
+    color: lighten($content-background, 40%);
     background-color: $primary-color;
+
+    float: right;
   }
 
   &.text {
@@ -50,10 +85,24 @@ $primary-color: #1894FC;
     padding: 5px;
     border-radius: 5px;
   }
+
+  iframe {
+    width: 100%;
+  }
 }
+
+.botui-message-content-image {
+  margin: 5px 0;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 500px;
+}
+
 
 .botui-message-content-link {
   color: $primary-color;
+
+  text-decoration: underline;
 }
 
 .botui-actions-text-input {
@@ -178,5 +227,19 @@ $primary-color: #1894FC;
   }
   100% {
     transform: translate(0, 0px);
+  }
+}
+
+button.botui-actions-buttons-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+.botui-actions-text-submit {
+  @media (min-width: 400px) {
+    display: none;
   }
 }

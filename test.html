@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <title>test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="src/styles/index.css">
-  <link rel="stylesheet" href="build/botui.min.css">
-  <link rel="stylesheet" href="build/botui-theme-default.css">
+  <link rel="stylesheet" href="src/styles/index.css"> <!-- sideBar style -->
+  <!--<link rel="stylesheet" href="build/botui.min.css">-->
+  <link rel="stylesheet" href="build/botui-theme-custom.css">
 </head>
 <body>
   <div class="botui-container" id="welcome">
@@ -137,7 +137,7 @@
         botui.message.add({
           loading:true,
           delay:500,
-          content:'有很多交易所（币安，火币，gate.io）到底选择哪一个呢？答：我搜索了这个问题，看过了几篇文章以后，得出结论：币安是目前最具公信力的，几乎所有报道都提到币安，而且放到首位。但是，币安只支持币与币的结算，对于你我没有数字货币的人来说，币安不适合。'
+          content:'有很多交易所（币安，火币，gate.io）到底选择哪一个呢？答：我搜索了这个问题，看过了几篇文章以后，得出结论：币安是目前最具公信力的，几乎所有报道都提到币安，而且放到首位。但是，币安只支持币与币的结算，对于你我没有数字货币的人来说，币安不适合。所以挑选标准变为：支持法币结算，支持人民币结算，支持支付宝，微信等快捷支付；同时，具有公信力的平台。对于第一次购买数字货币的用户来说，最重要的意义在于入手。迈过了第一次的坎，后边自己可以下载多个平台，看哪个合适从哪个平台入手，都不在话下。因此，我选择了OTCBTC，符合上述标准。'
         })
       }
     }).then(function (){
@@ -271,6 +271,7 @@
       })
     });
   </script>
+
   <script>
   const content = document.querySelector('.content');
   const article = document.querySelector('#p1');
