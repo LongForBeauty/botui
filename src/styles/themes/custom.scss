@@ -10,6 +10,9 @@ $font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetic
 $primary-color: #1894FC;
 $content-background:#919292;
 
+body {
+  margin:0;
+}
 .botui-app-container {
   width: 100%; // mobile-first
   height: 100%;
@@ -47,7 +50,6 @@ $content-background:#919292;
   min-height: 30px;
 
   margin: 10px 0;
-  min-height: 20px;
 
   &:after {
     display: block;

@@ -2,27 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>test</title>
+  <title>Conversational UI for guiding people</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="src/styles/index.css"> <!-- sideBar style -->
+
+  <!--Font awesome-->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+  <link rel="stylesheet" href="src/styles/style.css"> <!-- sideBar style -->
   <!--<link rel="stylesheet" href="build/botui.min.css">-->
   <link rel="stylesheet" href="build/botui-theme-custom.css">
-</head>
-<body>
-  <div class="botui-container" id="welcome">
-    <bot-ui></bot-ui>
-  </div>
+  <body>
+    <div class="wrapper">
+      <div class="content-wrapper">
+        <div class="botui-container" id="welcome">
+          <bot-ui></bot-ui>
+        </div>
 
-  <div class="content" aria-hidden="true">
-    dsjaklfjaksdjflad
-    <article id="p1">
-      <h3>Project 1</h3>
-      <p>Project 1 info goes here...</p>
-    </article>
-  </div>
+        <i class="fas fa-list-ul fa-3x" id="sideBar-open"></i>
+      </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <script src="build/botui.js"></script>
+      <aside class="sideBar" aria-hidden="true">
+        <div class='sideBar-header'>
+              <h3>笔记</h3>
+              <i class="fas fa-times fa-lg" id="sideBar-close" style="display:inline-block"></i>
+        </div>
+        <div class='botui-container' id="notes">
+          <bot-ui></bot-ui>
+        </div>
+        <div class="msg-input">
+          enter
+        </div>
+      </aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="build/botui.js"></script>
+
+  <!--Main conversational pane for displaying the information and interacting with the users-->
   <script>
     var botui = new BotUI('welcome');
 
@@ -141,22 +156,22 @@
         })
       }
     }).then(function (){
-        return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'那让我们继续买币的流程。'
-        })
+      return botui.message.add({
+        loading:true,
+        delay:1500,
+        content:'那让我们继续买币的流程。'
+      })
     }).then(function (){
-       return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'![](src/img/1.jpg)'
-        })
+      return botui.message.add({
+        loading:true,
+        delay:1500,
+        content:'![](src/img/1.jpg)'
+      })
     }).then(function(){
       botui.message.add({
-            loading:true,
-            delay:1500,
-            content:'我将一步步带你走过这些环节，让你安心完成购买数字货币！'
+        loading:true,
+        delay:1500,
+        content:'我将一步步带你走过这些环节，让你安心完成购买数字货币！'
       })
     }).then(function (){
       return botui.action.button({
@@ -168,11 +183,11 @@
         ]
       })
     }).then(function (){
-        return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'![first step](src/img/2.png)'
-        })
+      return botui.message.add({
+        loading:true,
+        delay:1500,
+        content:'![first step](src/img/2.png)'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -183,11 +198,11 @@
         ]
       })
     }).then(function (){
-        return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'注册成功了吗？'
-        })
+      return botui.message.add({
+        loading:true,
+        delay:1500,
+        content:'注册成功了吗？'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -198,19 +213,19 @@
         ]
       })
     }).then(function (){
-          botui.message.add({
-          content:'![3rd step](src/img/3.png)'
-        })
-      }).then(function (){
-        botui.message.add({
+      botui.message.add({
+        content:'![3rd step](src/img/3.png)'
+      })
+    }).then(function (){
+      botui.message.add({
         content:'![3rd step-2](src/img/4.png)'
       })
     }).then(function (){
-        return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'完成验证了吗？'
-        })
+      return botui.message.add({
+        loading:true,
+        delay:1500,
+        content:'完成验证了吗？'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -221,9 +236,9 @@
         ]
       })
     }).then(function (){
-          botui.message.add({
-          content:'![4th step](src/img/5.png)'
-        })
+      botui.message.add({
+        content:'![4th step](src/img/5.png)'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -234,9 +249,9 @@
         ]
       })
     }).then(function (){
-          botui.message.add({
-          content:'![5th step](src/img/6.png)'
-        })
+      botui.message.add({
+        content:'![5th step](src/img/6.png)'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -247,15 +262,15 @@
         ]
       })
     }).then(function (){
-          botui.message.add({
-          content:'![last step](src/img/7.png)'
-        })
+      botui.message.add({
+        content:'![last step](src/img/7.png)'
+      })
     }).then(function (){
-        return botui.message.add({
-          loading:true,
-          delay:1500,
-          content:'恭喜第一次完成数字货币的购买，其他交易平台的购买流程大致一样，你可以自信地进行尝试啦！😊'
-        })
+      return botui.message.add({
+        loading:true,
+        delay:1500,
+        content:'恭喜第一次完成数字货币的购买，其他交易平台的购买流程大致一样，你可以自信地进行尝试啦！😊'
+      })
     }).then(function (){
       return botui.action.button({
         action:[
@@ -271,18 +286,49 @@
       })
     });
   </script>
-
+  <!-- Conversational pane for sideBar-->
   <script>
-  const content = document.querySelector('.content');
-  const article = document.querySelector('#p1');
-    document.addEventListener('mouseup', e => {
-      if (window.getSelection().toString().trim() == '王子龙') {
-        //article.classList.add('show');
-        content.setAttribute('aria-hidden', 'false');
-        //content.classList.add('show');
-        //content.focus();
-      }
+    var notes = new BotUI('notes');
+
+    notes.message.add({
+      content: '你好，我叫[王子龙](#)，秉持对数字货币长期价值的看好，我想投资数字货币。'
+    }).then(function() {
+      return  notes.message.add({
+        loading:true,
+        delay:1000,
+        content:'这是我第一次尝试买数字货币，身边没有“触手可及”的朋友手把手教，于是我花了一些时间在网上找用户分享的买币教程。'
+      })
     })
   </script>
-</body>
-</html>
+  <!-- Mechanisms to toggle the sideBar -->
+  <script>
+    const sideBar = document.querySelector('.sideBar');
+    const sideBarOpen = document.getElementById('sideBar-open');
+    const sideBarClose = document.getElementById('sideBar-close');
+
+    //User select certain content to trigger the appearance of the sideBar
+    document.addEventListener('mouseup', e => {
+      if (window.getSelection().toString().trim() == '王子龙') {
+        sideBar.setAttribute('aria-hidden', 'false');
+      }
+    });
+
+    //Toggle the sideBar by right-bottom button
+    sideBarOpen.addEventListener('click', e=>{
+      if (sideBar.getAttribute('aria-hidden') == "true")
+        sideBar.setAttribute('aria-hidden', 'false');
+      else
+        sideBar.setAttribute('aria-hidden', 'true');
+    });
+
+    //Close the sideBar by 'x' button
+    sideBarClose.addEventListener('click', function(){
+      sideBar.setAttribute('aria-hidden', 'true');
+    })
+
+
+
+
+  </script>
+  </body>
+  </html>
