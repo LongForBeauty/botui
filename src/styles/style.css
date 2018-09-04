@@ -34,6 +34,7 @@
 
   display: block;
   background-color: #000;
+  opacity: 0.92;
   color: #fff;
 
   margin: 0;
@@ -101,4 +102,29 @@
   .sideBar .botui-message-content {
     padding: 1em 2em;
   }
+}
+
+input#typingMsg {
+  position:relative;
+  font-size:16px;
+  color:#fff;
+  width: 95%;
+  margin: 0.2em 0.5em;
+  padding: 1em 0.5em;
+  background:rgba(0, 0, 0, 0.8);
+  border:0;
+  border-bottom: 1px solid;
+  border-bottom-color: #fff;
+}
+
+button#enterMsg {
+  position:relative;
+  width:73px;
+  height:35px;
+  border-radius:4px;
+  background-color: #327AD7;
+  color: #fff;
+  font-weight: 800;
+  font-size:14px;
+  margin:14px 11px;
 }

@@ -29,8 +29,9 @@
         <div class='botui-container' id="notes">
           <bot-ui></bot-ui>
         </div>
-        <div class="msg-input">
-          enter
+        <div class="msg-input" id="msg-input">
+          <input v-model="typingMsg" id="typingMsg">
+          <button v-on:click="enterMsg" id="enterMsg">确认</button>
         </div>
       </aside>
     </div>
@@ -298,6 +299,20 @@
         delay:1000,
         content:'这是我第一次尝试买数字货币，身边没有“触手可及”的朋友手把手教，于是我花了一些时间在网上找用户分享的买币教程。'
       })
+    });
+
+    var msg = new Vue({
+      el: '#msg-input',
+      data: {
+        typingMsg: '输入笔记'
+      },
+      methods: {
+        enterMsg: function() {
+          notes.message.human({
+            content:this.typingMsg
+          })
+        }
+      }
     })
   </script>
   <!-- Mechanisms to toggle the sideBar -->
