@@ -96,7 +96,7 @@
       return botui.message.add({
         loading:true,
         delay:500,
-        content:'购买前，你需要准备好一下物件：1. 身份证（实名验证）2. 纸和笔（验证时需要）3. 手机（拍照；双重验证） 4. 台式机/笔记本 （手机不支持注册后验证）'
+        content:'购买前，你需要准备好一下物件：<br>1. 身份证（实名验证）<br>2. 纸和笔（验证时需要）<br>3. 手机（拍照；双重验证）<br> 4. 台式机/笔记本 （手机不支持注册后验证）<br>'
       })
     }).then(function (){
       return botui.message.add({
@@ -117,7 +117,7 @@
       return botui.message.add({
         loading:true,
         delay:500,
-        content:'简要说下流程：首先，选择一个交易所（OTCBTC），然后注册，之后就可以用法币（人民币，美元）等购买你想要的数字货币了！'
+        content:'简要说下流程：首先，选择一个(交易所)[问：很多对比特币有了解的人可能会问，比特币不是有个钱包可以接受互相转账吗？为什么要用交易所？答：你有个比特币钱包，另一个人有个比特币钱包，你们两个人确实可以互相转，不需要通过中间方，但前提是你们都已经有了比特币！而你现在跟我一样，都是想第一次获得数字货币，而且是通过法币（人民币）购买，购买的对象还不认识，这就需要交易所了（当然交易所的价值不止这点，主要还有不同币之间进行买卖）！]（(OTCBTC)[有很多交易所（币安，火币，gate.io）到底选择哪一个呢？答：我搜索了这个问题，看过了几篇文章以后，得出结论：币安是目前最具公信力的，几乎所有报道都提到币安，而且放到首位。但是，币安只支持币与币的结算，对于你我没有数字货币的人来说，币安不适合。所以挑选标准变为：支持法币结算，支持人民币结算，支持支付宝，微信等快捷支付；同时，具有公信力的平台。对于第一次购买数字货币的用户来说，最重要的意义在于入手。迈过了第一次的坎，后边自己可以下载多个平台，看哪个合适从哪个平台入手，都不在话下。因此，我选择了OTCBTC，符合上述标准。]），然后注册，之后就可以用法币（人民币，美元）等购买你想要的数字货币了！'
       })
     }).then(function (){
       return botui.action.button({
@@ -291,16 +291,6 @@
   <script>
     var notes = new BotUI('notes');
 
-    notes.message.add({
-      content: '你好，我叫[王子龙](#)，秉持对数字货币长期价值的看好，我想投资数字货币。'
-    }).then(function() {
-      return  notes.message.add({
-        loading:true,
-        delay:1000,
-        content:'这是我第一次尝试买数字货币，身边没有“触手可及”的朋友手把手教，于是我花了一些时间在网上找用户分享的买币教程。'
-      })
-    });
-
     var msg = new Vue({
       el: '#msg-input',
       data: {
@@ -340,10 +330,17 @@
     sideBarClose.addEventListener('click', function(){
       sideBar.setAttribute('aria-hidden', 'true');
     })
-
-
-
-
+  </script>
+  <!--Content selection, annotation -->
+  <script>
+    function ShowAnnotation(event){
+      notes.message.add({
+        loading:true,
+        delay:500,
+        content:event.srcElement.dataset.annotation
+      });
+      sideBar.setAttribute('aria-hidden', 'false');
+    };
   </script>
   </body>
   </html>

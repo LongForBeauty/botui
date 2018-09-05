@@ -172,6 +172,17 @@ body {
   background-color: transparent !important;
   border: 0 !important;
 }
+//annotation
+.annotation {
+  border:0;
+  border-bottom: 1px gray dotted;
+  font-style:normal;
+}
+
+.annotation:hover {
+  font-weight:800;
+  background-color:#F6C2D1;
+}
 
 /*
   Animation of messages

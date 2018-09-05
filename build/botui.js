@@ -47,7 +47,8 @@
     _markDownRegex = {
       icon: /!\(([^\)]+)\)/igm, // !(icon)
       image: /!\[(.*?)\]\((.*?)\)/igm, // ![aleternate text](src)
-      link: /\[([^\[]+)\]\(([^\)]+)\)(\^?)/igm // [text](link) ^ can be added at end to set the target as 'blank'
+      link: /\[([^\[]+)\]\(([^\)]+)\)(\^?)/igm, // [text](link) ^ can be added at end to set the target as 'blank'
+      annotation: /\((.*?)\)\[(.*?)\]/igm //(annotated content)[its annotation]
     },
     _fontAwesome = 'https://use.fontawesome.com/ea731dcb6f.js',
     _esPromisePollyfill = 'https://cdn.jsdelivr.net/es6-promise/4.1.0/es6-promise.min.js', // mostly for IE
@@ -71,11 +72,16 @@
       return "<a class='botui-message-content-link' target='" + _target + "' href='" + $2 +"'>" + $1 + "</a>";
     }
 
+    function _annotationAdd(match, $1, $2) {
+      var _annotation = $2;
+      return "<i class='annotation' data-annotation='"+$2+"' onclick='ShowAnnotation(event)'>"+$1+"</i> ";
+    }
     function _parseMarkDown(text) {
       return text
                  .replace(_markDownRegex.image, "<img class='botui-message-content-image' src='$2' alt='$1' />")
                  .replace(_markDownRegex.icon, "<i class='botui-icon botui-message-content-icon fa fa-$1'></i>")
-                 .replace(_markDownRegex.link, _linkReplacer);
+                 .replace(_markDownRegex.link, _linkReplacer)
+                 .replace(_markDownRegex.annotation, _annotationAdd)
     }
 
     function loadScript(src, cb) {
