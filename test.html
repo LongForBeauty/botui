@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Conversational UI for guiding people</title>
+  <title>第一次购买数字货币引导</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!--Font awesome-->
@@ -333,14 +333,26 @@
   </script>
   <!--Content selection, annotation -->
   <script>
-    function ShowAnnotation(event){
+    function showAnnotation(event){
       notes.message.add({
         loading:true,
         delay:500,
-        content:event.srcElement.dataset.annotation
+        content:event.target.dataset.annotation
       });
       sideBar.setAttribute('aria-hidden', 'false');
     };
+
+    const annotations = document.querySelectorAll('.annotation');
+
+    for (i=0; i++; i<annotations.length) {
+      annotations[i].addEventListener('mouseup', e=> {
+        notes.message.add({
+          loading:true,
+          delay:500,
+          content:e.target.dataset.annotation
+        })
+      })
+    }
   </script>
   </body>
   </html>

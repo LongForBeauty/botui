@@ -74,7 +74,7 @@
 
     function _annotationAdd(match, $1, $2) {
       var _annotation = $2;
-      return "<i class='annotation' data-annotation='"+$2+"' onclick='ShowAnnotation(event)'>"+$1+"</i> ";
+      return "<i class='annotation' data-annotation='"+$2+"' onclick='showAnnotation(event)'>"+$1+"</i> ";
     }
     function _parseMarkDown(text) {
       return text

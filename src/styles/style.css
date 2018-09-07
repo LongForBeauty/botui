@@ -32,7 +32,6 @@
   top:0;
   right:0;
 
-  display: block;
   background-color: #000;
   opacity: 0.92;
   color: #fff;
@@ -66,8 +65,8 @@
 }
 .sideBar .botui-container {
   padding: 1em;
-  min-height: 100%;
-  /*display: none;*/
+  min-height: 70%;
+  height: 850px;
   overflow-y: auto;
   background-color: #212121;
 }
@@ -77,6 +76,7 @@
 }
 
 .sideBar .botui-message-content {
+  min-width: 40%;
   max-width: 90%;
   background-color: #ffffff;
 }
@@ -109,7 +109,6 @@ input#typingMsg {
   font-size:16px;
   color:#fff;
   width: 95%;
-  margin: 0.2em 0.5em;
   padding: 1em 0.5em;
   background:rgba(0, 0, 0, 0.8);
   border:0;
