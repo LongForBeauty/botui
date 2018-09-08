@@ -2,8 +2,11 @@
   display: -webkit-flex; /* Safari */
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: auto;
+  max-width: 1024px;
+  margin:auto;
   align-items: stretch;
+
 }
 
 .content-wrapper{
