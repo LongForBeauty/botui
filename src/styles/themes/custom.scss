@@ -18,10 +18,17 @@ body {
   height: 100%;
   line-height: 1;
 
-  @media (min-width: 400px) {
-    width: 400px;
-    height: 500px;
-    margin: 0 auto;
+  @media (min-width: 769px) {
+    font-size: 14px;
+    background-color: #fff;
+    font-family: $font-family;
+
+    width: auto;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 10px 50px;
   }
 }
 
@@ -39,11 +46,21 @@ body {
 }
 
 .botui-messages-container {
-  padding: 10px 20px;
+  padding: 0;
+  margin: 0;
+  @media (min-width:769px) {
+    padding: 10px 20px;
+  }
+
 }
 
 .botui-actions-container {
-  padding: 10px 20px;
+  padding: 0;
+  margin: 0;
+  @media (min-width:769px) {
+    padding: 10px 20px;
+  }
+
 }
 
 .botui-message {
@@ -59,13 +76,16 @@ body {
 }
 
 .botui-message-content {
-  padding: 7px 13px;
   border-radius: 15px;
   color: darken($content-background, 22%);
   background-color: lighten($content-background, 35%);
 
+  @media (min-width:769px) {
+    padding: 7px 13px;
+    max-width: 60%;
+  }
+  padding: 3px 7px;
   width: auto;
-  max-width: 60%;
   display: inline-block;
 
   &.human { // if human = true

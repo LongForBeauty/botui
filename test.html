@@ -14,19 +14,19 @@
   <body>
     <div class="wrapper">
       <div class="content-wrapper">
-        <div class="botui-container" id="welcome">
+        <div class="botui-app-container" id="welcome">
           <bot-ui></bot-ui>
         </div>
 
         <i class="fas fa-list-ul fa-3x" id="sideBar-open"></i>
       </div>
 
-      <aside class="sideBar" aria-hidden="true">
+      <aside class="sideBar" id="sideBar" aria-hidden="true">
         <div class='sideBar-header'>
               <h3>笔记</h3>
-              <i class="fas fa-times fa-lg" id="sideBar-close" style="display:inline-block"></i>
+              <i class="fas fa-times fa-lg" id="sideBar-close"></i>
         </div>
-        <div class='botui-container' id="notes">
+        <div class='botui-app-container' id="notes">
           <bot-ui></bot-ui>
         </div>
         <div class="msg-input" id="msg-input">
@@ -353,6 +353,16 @@
         })
       })
     }
+  </script>
+  <script>
+   var sideBar = document.getElementById('sideBar');
+
+   sideBar.addEventListener('touchmove', function(e) {
+
+        e.preventDefault();
+
+   }, false);
+
   </script>
   </body>
   </html>

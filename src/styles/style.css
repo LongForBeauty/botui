@@ -22,10 +22,10 @@
 #sideBar-open {
   position: -webkit-fixed;
   position: fixed;
-  bottom: 2em;
-  right: 2em;
-  width:auto;
-  height:auto;
+  right:5px;
+  bottom:5px;
+  size: 10%;
+
   background: #ffffff;
   z-index: 9999;
 }
@@ -34,6 +34,7 @@
   position: fixed;
   top:0;
   right:0;
+  bottom: 0;
 
   background-color: #000;
   opacity: 0.92;
@@ -42,8 +43,7 @@
   margin: 0;
   outline:0;
   width:400px;
-  min-height: 100%;
-  z-index: 810;
+  z-index: 9999;
 
 
   -webkit-transition: transform 0.35s ease;
@@ -66,13 +66,13 @@
   padding: 1em 1.5em;
   margin: 0;
 }
+
 .sideBar .botui-container {
-  padding: 1em;
-  min-height: 70%;
-  height: 850px;
-  overflow-y: auto;
+  height: 75vh;
+  overflow-y: scroll;
   background-color: #212121;
 }
+
 
 .sideBar .botui-messages-container {
   padding: 1em 1em;
@@ -104,6 +104,17 @@
   }
   .sideBar .botui-message-content {
     padding: 1em 2em;
+  }
+  .sideBar .botui-container {
+    padding: 1em;
+    min-height: 70%;
+    height: 850px;
+  }
+  #sideBar-open {
+    bottom: 2em;
+    right: 2em;
+    width:auto;
+    height:auto;
   }
 }
 
