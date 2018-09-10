@@ -34,7 +34,7 @@
   position: fixed;
   top:0;
   right:0;
-  bottom: 0;
+  bottom:0;
 
   background-color: #000;
   opacity: 0.92;
@@ -58,17 +58,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: auto;
   max-height: 80px;
   padding:0 2em;
 }
-.sideBar .header h3 {
+
+.sideBar h3 {
   display:inline-block;
-  padding: 1em 1.5em;
-  margin: 0;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 0;
+  letter-spacing: 1px;
 }
 
-.sideBar .botui-container {
-  height: 75vh;
+.sideBar .botui-app-container {
+  height: 82vh;
   overflow-y: scroll;
   background-color: #212121;
 }
@@ -85,7 +89,11 @@
 }
 
 .sideBar .msg-input {
-  height:80px;
+  position: relative;
+  height: auto;
+  width: 100%;
+  overflow: auto;
+  background:rgba(0, 0, 0, 0.8);
 }
 
 .sideBar[aria-hidden="true"]{
@@ -97,13 +105,26 @@
   transform: translateX(0);
 }
 
+
 @media (min-width: 769px) {
   .container {
     border-left: 1px solid #e1e1e1;
     border-right: 1px solid #e1e1e1;
   }
+
+  .sideBar {
+    bottom: 0;
+  }
+
+  .sideBar h3{
+    padding: 1em 1.5em;
+  }
   .sideBar .botui-message-content {
-    padding: 1em 2em;
+    padding: 1em 1em;
+  }
+  .sideBar .botui-app-container {
+    max-height: 85%;
+    height:auto;
   }
   .sideBar .botui-container {
     padding: 1em;
@@ -116,28 +137,40 @@
     width:auto;
     height:auto;
   }
+
+  button#enterMsg {
+   margin:14px 11px;
+   width:auto;
+   height:auto;
+   border-radius:4px;
+   font-size:16px;
+   letter-spacing: 2px;
+  }
 }
 
 input#typingMsg {
-  position:relative;
+  position:absolute;
   font-size:16px;
   color:#fff;
-  width: 95%;
+  width: 80%;
   padding: 1em 0.5em;
-  background:rgba(0, 0, 0, 0.8);
   border:0;
   border-bottom: 1px solid;
   border-bottom-color: #fff;
+  background:rgba(0, 0, 0, 0.8);
 }
 
-button#enterMsg {
+#enterMsg {
+  display: inline-block;
   position:relative;
-  width:73px;
-  height:35px;
-  border-radius:4px;
-  background-color: #327AD7;
-  color: #fff;
+  z-index: 999;
   font-weight: 800;
-  font-size:14px;
-  margin:14px 11px;
+  margin: 15px 5px;
+  width: 15%;
+  height: auto;
+  border-radius: 2px;
+  font-size: 14px;
+  float: right;
+  color:white;
+  background-color: #327AD7;
 }

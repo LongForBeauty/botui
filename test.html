@@ -8,6 +8,7 @@
   <!--Font awesome-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/solid.css" integrity="sha384-VGP9aw4WtGH/uPAOseYxZ+Vz/vaTb1ehm1bwx92Fm8dTrE+3boLfF1SpAtB1z7HW" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/fontawesome.css" integrity="sha384-1rquJLNOM3ijoueaaeS5m+McXPJCGdr5HcA03/VHXxcp2kX2sUrQDmFc3jR5i/C7" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="src/styles/style.css"> <!-- sideBar style -->
   <!--<link rel="stylesheet" href="build/botui.min.css">-->
   <link rel="stylesheet" href="build/botui-theme-custom.css">
@@ -18,7 +19,7 @@
           <bot-ui></bot-ui>
         </div>
 
-        <i class="fas fa-list-ul fa-3x" id="sideBar-open"></i>
+        <i class="fas fa-list-ul fa-lg" id="sideBar-open"></i>
       </div>
 
       <aside class="sideBar" id="sideBar" aria-hidden="true">
@@ -30,7 +31,7 @@
           <bot-ui></bot-ui>
         </div>
         <div class="msg-input" id="msg-input">
-          <input v-model="typingMsg" id="typingMsg">
+          <input v-model="typingMsg"  id="typingMsg">
           <button v-on:click="enterMsg" id="enterMsg">确认</button>
         </div>
       </aside>
@@ -96,6 +97,12 @@
       return botui.message.add({
         loading:true,
         delay:500,
+        content:'值得声明的是，以下内容我主要参考并实践了知乎专栏“新手第一次如何购买数字货币-详细步骤攻略": https://zhuanlan.zhihu.com/p/34962193'
+      })
+    }).then(function (){
+      return botui.message.add({
+        loading:true,
+        delay:500,
         content:'购买前，你需要准备好一下物件：<br>1. 身份证（实名验证）<br>2. 纸和笔（验证时需要）<br>3. 手机（拍照；双重验证）<br> 4. 台式机/笔记本 （手机不支持注册后验证）<br>'
       })
     }).then(function (){
@@ -117,7 +124,7 @@
       return botui.message.add({
         loading:true,
         delay:500,
-        content:'简要说下流程：首先，选择一个(交易所)[问：很多对比特币有了解的人可能会问，比特币不是有个钱包可以接受互相转账吗？为什么要用交易所？答：你有个比特币钱包，另一个人有个比特币钱包，你们两个人确实可以互相转，不需要通过中间方，但前提是你们都已经有了比特币！而你现在跟我一样，都是想第一次获得数字货币，而且是通过法币（人民币）购买，购买的对象还不认识，这就需要交易所了（当然交易所的价值不止这点，主要还有不同币之间进行买卖）！]（(OTCBTC)[有很多交易所（币安，火币，gate.io）到底选择哪一个呢？答：我搜索了这个问题，看过了几篇文章以后，得出结论：币安是目前最具公信力的，几乎所有报道都提到币安，而且放到首位。但是，币安只支持币与币的结算，对于你我没有数字货币的人来说，币安不适合。所以挑选标准变为：支持法币结算，支持人民币结算，支持支付宝，微信等快捷支付；同时，具有公信力的平台。对于第一次购买数字货币的用户来说，最重要的意义在于入手。迈过了第一次的坎，后边自己可以下载多个平台，看哪个合适从哪个平台入手，都不在话下。因此，我选择了OTCBTC，符合上述标准。]），然后注册，之后就可以用法币（人民币，美元）等购买你想要的数字货币了！'
+        content:'简要说下流程：首先，选择一个(交易所)[问：很多对比特币有了解的人可能会问，比特币不是有个钱包可以接受互相转账吗？为什么要用交易所？<br><br>答：你有个比特币钱包，另一个人有个比特币钱包，你们两个人确实可以互相转，不需要通过中间方，但前提是你们都已经有了比特币！而你现在跟我一样，都是想第一次获得数字货币，而且是通过法币（人民币）购买，购买的对象还不认识，这就需要交易所了（当然交易所的价值不止这点，主要还有不同币之间进行买卖）！]（(OTCBTC)[有很多交易所（币安，火币，gate.io）到底选择哪一个呢？<br><br>答：我搜索了这个问题，看过了几篇文章以后，得出结论：币安是目前最具公信力的，几乎所有报道都提到币安，而且放到首位。但是，币安只支持币与币的结算，对于你我没有数字货币的人来说，币安不适合。所以挑选标准变为：支持法币结算，支持人民币结算，支持支付宝，微信等快捷支付；同时，具有公信力的平台。<br><br>对于第一次购买数字货币的用户来说，最重要的意义在于入手。迈过了第一次的坎，后边自己可以下载多个平台，看哪个合适从哪个平台入手，都不在话下。因此，我选择了OTCBTC，符合上述标准。]），然后注册，之后就可以用法币（人民币，美元）等购买你想要的数字货币了！'
       })
     }).then(function (){
       return botui.action.button({
@@ -287,7 +294,7 @@
       })
     });
   </script>
-  <!-- Conversational pane for sideBar-->
+  <!-- Enter notes into the sideBar pane-->
   <script>
     var notes = new BotUI('notes');
 
@@ -301,34 +308,34 @@
           notes.message.human({
             content:this.typingMsg
           })
-        }
+        },
       }
     })
   </script>
   <!-- Mechanisms to toggle the sideBar -->
   <script>
-    const sideBar = document.querySelector('.sideBar');
+    const sidebar = document.querySelector('.sideBar');
     const sideBarOpen = document.getElementById('sideBar-open');
     const sideBarClose = document.getElementById('sideBar-close');
 
     //User select certain content to trigger the appearance of the sideBar
     document.addEventListener('mouseup', e => {
       if (window.getSelection().toString().trim() == '王子龙') {
-        sideBar.setAttribute('aria-hidden', 'false');
+        sidebar.setAttribute('aria-hidden', 'false');
       }
     });
 
     //Toggle the sideBar by right-bottom button
     sideBarOpen.addEventListener('click', e=>{
-      if (sideBar.getAttribute('aria-hidden') == "true")
-        sideBar.setAttribute('aria-hidden', 'false');
+      if (sidebar.getAttribute('aria-hidden') == "true")
+        sidebar.setAttribute('aria-hidden', 'false');
       else
-        sideBar.setAttribute('aria-hidden', 'true');
+        sidebar.setAttribute('aria-hidden', 'true');
     });
 
     //Close the sideBar by 'x' button
     sideBarClose.addEventListener('click', function(){
-      sideBar.setAttribute('aria-hidden', 'true');
+      sidebar.setAttribute('aria-hidden', 'true');
     })
   </script>
   <!--Content selection, annotation -->
@@ -354,15 +361,26 @@
       })
     }
   </script>
+  <!-- Prevent scrolling of the main page when the sideBar opens-->
   <script>
-   var sideBar = document.getElementById('sideBar');
+   var sidebar = document.getElementById('sideBar');
 
-   sideBar.addEventListener('touchmove', function(e) {
+   sidebar.addEventListener('touchmove', function(e) {
 
         e.preventDefault();
 
    }, false);
 
+  </script>
+  <!-- enlarge the image when users click on the image-->
+  <!--<script>
+    $(document).click(function(){
+      if (event.target.tagName == 'IMG') {
+        $(event.target).toggleClass('botui-message-content-image');
+        $(event.target).toggleClass('botui-message-content-image-large');
+      }
+    });-->
+</script>
   </script>
   </body>
   </html>

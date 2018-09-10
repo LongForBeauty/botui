@@ -17,32 +17,28 @@ body {
   width: 100%; // mobile-first
   height: 100%;
   line-height: 1;
+  background-color: #fff;
 
-  @media (min-width: 769px) {
-    font-size: 14px;
-    background-color: #fff;
-    font-family: $font-family;
-
-    width: auto;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-
-    padding: 10px 50px;
-  }
+  font-size: 14px;
+  font-family: $font-family;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .botui-container {
   font-size: 14px;
-  background-color: #fff;
   font-family: $font-family;
 
   width: auto;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  padding: 3px 15px;
 
-  padding: 10px 50px;
+  @media (min-width: 769px) {
+    padding: 10px 25px;
+  }
+
 }
 
 .botui-messages-container {
@@ -79,24 +75,26 @@ body {
   border-radius: 15px;
   color: darken($content-background, 22%);
   background-color: lighten($content-background, 35%);
+  box-shadow: -3px 3px 4px 0 rgba(0,0,0,.25);
 
   @media (min-width:769px) {
     padding: 7px 13px;
     max-width: 60%;
   }
-  padding: 3px 7px;
-  width: auto;
+  padding: 5px 10px;
+  max-width: 80%;
   display: inline-block;
+  overflow-x: scroll;
 
   &.human { // if human = true
     color: lighten($content-background, 40%);
     background-color: $primary-color;
-
+    box-shadow: 3px 3px 4px 0 rgba(0,0,0,.25);
     float: right;
   }
 
   &.text {
-    line-height: 1.3;
+    line-height: 1.5;
   }
   &.loading {
     background-color: rgba(206,206,206,0.50);
@@ -118,6 +116,12 @@ body {
   display: inline-block;
   max-width: 100%;
   max-height: 500px;
+}
+
+.botui-message-content-image-large {
+  width:90%;
+  height:auto;
+  box-shadow: -5px 6px 8px 0 rgba(0,0,0,.25);
 }
 
 
